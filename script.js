@@ -4,7 +4,6 @@ const authorText = document.getElementById("author");
 const twitterBtn = document.getElementById("twitter");
 const newQuoteBtn = document.getElementById("new-quote");
 const loader = document.getElementById("loader");
-let counter = 0;
 
 function showLoadingSpinner() {
   loader.hidden = false;
@@ -40,11 +39,7 @@ async function getQuote() {
     quoteText.innerText = data.quoteText;
     removeLoadingSpinner();
   } catch (error) {
-    if (counter > 10) {
-      getQuote();
-      counter++;
-    }
-    console.error("Sorry there is something wrong with the page!");
+    getQuote();
   }
 }
 
